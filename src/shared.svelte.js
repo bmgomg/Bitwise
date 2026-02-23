@@ -49,7 +49,7 @@ export const onClickOp = (op) => {
 
     delete ss.robo_op;
     ss.op = op;
-    const bits = $derived(fn(op));
+    const bits = fn(op);
 
     const score = [...ss.score];
 

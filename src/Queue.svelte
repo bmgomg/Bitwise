@@ -84,7 +84,6 @@
         grid-auto-flow: column;
         place-content: center;
         align-items: center;
-        padding: 0 6px;
     }
 
     .default-background {
