@@ -145,7 +145,7 @@
         background: #135c99;
         background-image: radial-gradient(transparent, black 150%), url('$lib/images/Texture.webp');
         background-size: 407px 750px;
-  }
+    }
 
     .frame {
         grid-area: 1/1;
