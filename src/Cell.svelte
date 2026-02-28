@@ -32,7 +32,7 @@
     });
 </script>
 
-<div class={classes} style="grid-area: {index + 1} / 1/">
+<div class={classes} style="grid-area: {index + 1} / 1">
     <XO x={b1} {size} {filter} />
     {#if ss.bits === 2}
         <XO x={b2} {size} {filter} />

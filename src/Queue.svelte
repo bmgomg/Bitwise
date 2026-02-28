@@ -27,7 +27,9 @@
             {@const filter = 'invert(0.25)'}
             <div class={classes} style="grid-area: {row}/1" in:fly={params}>
                 <XO x={bits[0]} {size} {filter} />
-                <XO x={bits[1]} {size} {filter} />
+                {#if ss.bits === 2}
+                    <XO x={bits[1]} {size} {filter} />
+                {/if}
             </div>
         {/snippet}
         {@render cell(newClasses, newParams, ss.new, 1)}
