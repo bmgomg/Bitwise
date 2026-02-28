@@ -34,13 +34,13 @@ export const fn = (op, que = ss.queue) => {
 
     switch (op) {
         case 'AND':
-            return [bits1[0] & bits2[0], bits1[1] & bits2[1]];
+            return ss.bits == 2 ? [bits1[0] & bits2[0], bits1[1] & bits2[1]] : [bits1[0] & bits2[0]];
         case 'OR':
-            return [bits1[0] | bits2[0], bits1[1] | bits2[1]];
+            return ss.bits == 2 ? [bits1[0] | bits2[0], bits1[1] | bits2[1]] : [bits1[0] | bits2[0]];
         case 'XOR':
-            return [bits1[0] ^ bits2[0], bits1[1] ^ bits2[1]];
+            return ss.bits == 2 ? [bits1[0] ^ bits2[0], bits1[1] ^ bits2[1]] : [bits1[0] ^ bits2[0]];
         default:
-            return [0, 0];
+            return ss.bits == 2 ? [0, 0] : [0];
     }
 };
 
@@ -55,9 +55,9 @@ export const onClickOp = (op) => {
 
     const score = [...ss.score];
 
-    if (bits[0] === 1 && bits[1] === 0) {
+    if (bits[0] === 1 && (ss.bits === 1 || bits[1] === 0)) {
         ss.score[0] += 1;
-    } else if (bits[0] === 0 && bits[1] === 1) {
+    } else if (bits[0] === 0 && (ss.bits === 1 || bits[1] === 1)) {
         ss.score[1] += 1;
     }
 
