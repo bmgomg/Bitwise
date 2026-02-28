@@ -19,6 +19,11 @@ export const persist = () => {
 
 export const valueColor = (bits) => {
     const b1 = bits[0];
+
+    if (ss.bits === 1) {
+        return b1 ? 'yellow' : 'blue';
+    }
+
     const b2 = bits[1];
 
     return b1 && b2 ? 'green' : b1 && !b2 ? 'yellow' : b2 && !b1 ? 'blue' : 'ow';

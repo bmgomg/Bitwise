@@ -2,7 +2,7 @@
     import Back from '$lib/images/Back.webp';
     import MusicOff from '$lib/images/Music Off.webp';
     import MusicOn from '$lib/images/Music On.webp';
-    import Help from '$lib/images/Question.webp';
+    // import Help from '$lib/images/Question.webp';
     import ResetStats from '$lib/images/Reset Stats.webp';
     import Restart from '$lib/images/Restart.webp';
     import SoundOff from '$lib/images/Sound Off.webp';
@@ -19,9 +19,9 @@
         ss.page = START_PAGE;
     };
 
-    const onHelp = () => {
-        ss.help = true;
-    };
+    // const onHelp = () => {
+    //     ss.help = true;
+    // };
 
     const onResetStats = () => {
         if (_prompt.id == PROMPT_RESET_STATS) {
