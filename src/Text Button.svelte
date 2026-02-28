@@ -65,7 +65,6 @@
 
 	.button:hover {
 		color: white;
-		text-decoration: overline;
 	}
 
 	.disabled {

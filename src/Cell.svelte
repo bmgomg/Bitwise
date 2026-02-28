@@ -16,6 +16,10 @@
 
         let classes = 'cell ';
 
+        if (ss.bits === 2) {
+            classes += 'two-bits ';
+        }
+
         if (!input && (index < QUEUE_SIZE - 3 || !ss.new)) {
             classes += 'default-background ';
         }
@@ -28,9 +32,11 @@
     });
 </script>
 
-<div class={classes} style="grid-area: {index + 1} / 1">
+<div class={classes} style="grid-area: {index + 1} / 1/">
     <XO x={b1} {size} {filter} />
-    <XO x={b2} {size} {filter} />
+    {#if ss.bits === 2}
+        <XO x={b2} {size} {filter} />
+    {/if}
 </div>
 
 <style>
@@ -40,7 +46,6 @@
         border: solid #00000080;
         border-width: 0 0 1px;
         display: grid;
-        grid: auto / 1fr 1fr;
         grid-auto-flow: column;
         place-content: center;
         align-items: center;
@@ -48,6 +53,10 @@
         transition:
             transform var(--duration) cubic-bezier(0.55, 0.055, 0.675, 0.19),
             background-color var(--duration) linear;
+    }
+
+    .two-bits {
+        grid: auto / 1fr 1fr;
     }
 
     .delay {

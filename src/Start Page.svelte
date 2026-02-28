@@ -76,6 +76,7 @@
             <img src={OppAI} alt="" width="100" onpointerdown={() => onOppSelect(OPP_AI)} />
             <img src={OppFriend} alt="" width="100" onpointerdown={() => onOppSelect(OPP_FRIEND)} />
         </div>
+        <div></div>
     </div>
 {/if}
 
@@ -120,6 +121,6 @@
     }
 
     img:hover {
-        filter: drop-shadow(0 0 5px white);
+        filter: drop-shadow(0 0 4px white);
     }
 </style>

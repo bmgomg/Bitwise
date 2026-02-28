@@ -25,7 +25,9 @@
     <span class="text">Player {player} scores when the result is</span>
     <div class="bits {valueColor(player === 1 ? [1, 0] : [0, 1])}">
         <XO x={player === 1} {size} />
-        <XO x={player === 2} {size} />
+        {#if ss.bits === 2}
+            <XO x={player === 2} {size} />
+        {/if}
     </div>
 </div>
 

@@ -45,7 +45,9 @@
     <div bind:this={_op} class="name {ss.pressed === op ? 'pressed' : ''}">{op}</div>
     <div class="bits {valueColor(outBits)}">
         <XO x={outBits[0]} {size} />
-        <XO x={outBits[1]} {size} />
+        {#if ss.bits === 2}
+            <XO x={outBits[1]} {size} />
+        {/if}
     </div>
 </div>
 
