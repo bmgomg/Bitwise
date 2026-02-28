@@ -3,12 +3,13 @@
     import OppFriend from '$lib/images/Opponent Friend.webp';
     import { fade } from 'svelte/transition';
     import { GAME_PAGE, OPP_AI, OPP_FRIEND, START_PAGE } from './const';
-    import { onPlay } from './shared.svelte';
+    import { appKey, onPlay } from './shared.svelte';
     import { _sound } from './sound.svelte';
     import { _stats, ss } from './state.svelte';
+    import TextButton from './Text Button.svelte';
 
     const loadGame = () => {
-        const json = localStorage.getItem(ss.appKey());
+        const json = localStorage.getItem(appKey());
         const job = JSON.parse(json);
 
         if (job) {
@@ -46,6 +47,10 @@
 
         ss.page = GAME_PAGE;
     };
+
+    const onBitsSelect = (bits) => {
+        ss.bits = bits;
+    };
 </script>
 
 {#if ss.page === START_PAGE}
@@ -55,8 +60,22 @@
             <span class="subtitle">Use your bits wisely.</span>
         </div>
         <div></div>
-        <img src={OppAI} alt="" width="100" onpointerdown={() => onOppSelect(OPP_AI)} />
-        <img src={OppFriend} alt="" width="100" onpointerdown={() => onOppSelect(OPP_FRIEND)} />
+        <div class="ops">
+            {#each [1, 2] as bits (bits)}
+                {@const style = 'width: 100px; filter: drop-shadow(0 0 5px black);'}
+                <TextButton
+                    id={'tb-bits-' + bits}
+                    text={[bits + '-BIT']}
+                    disabled={ss.bits === bits}
+                    selected={ss.bits === bits}
+                    {style}
+                    onClick={() => onBitsSelect(bits)} />
+            {/each}
+        </div>
+        <div class="ops">
+            <img src={OppAI} alt="" width="100" onpointerdown={() => onOppSelect(OPP_AI)} />
+            <img src={OppFriend} alt="" width="100" onpointerdown={() => onOppSelect(OPP_FRIEND)} />
+        </div>
     </div>
 {/if}
 
@@ -83,6 +102,15 @@
         font-family: Subtitle;
         font-size: 24px;
         font-weight: normal;
+    }
+
+    .ops {
+        display: grid;
+        grid-auto-flow: column;
+        gap: 50px;
+        font-family: Title;
+        font-size: 28px;
+        font-weight: bold;
     }
 
     img {

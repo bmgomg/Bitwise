@@ -1,10 +1,12 @@
 import { sample } from 'lodash-es';
-import { CHEER_PLAYER1_WON, CHEER_PLAYER2_WON, CHEER_YOU_LOST, CHEER_YOU_WON, CHIME_LOST, CHIME_PLAYER1_WINS, CHIME_PLAYER2_WINS, CHIME_WON, OP_AND, OP_OR, OP_XOR, OPP_AI, OPP_FRIEND, POINTS_TO_WIN, PROMPT_PLAY_AGAIN, QUEUE_SIZE } from './const';
+import { APP_STATE, CHEER_PLAYER1_WON, CHEER_PLAYER2_WON, CHEER_YOU_LOST, CHEER_YOU_WON, CHIME_LOST, CHIME_PLAYER1_WINS, CHIME_PLAYER2_WINS, CHIME_WON, OP_AND, OP_OR, OP_XOR, OPP_AI, OPP_FRIEND, POINTS_TO_WIN, PROMPT_PLAY_AGAIN, QUEUE_SIZE } from './const';
 import { _sound } from './sound.svelte';
 import { _prompt, _stats, ss } from './state.svelte';
 import { post, range } from './utils';
 
 export const log = (value) => console.log($state.snapshot(value));
+
+export const appKey = () => `${APP_STATE} • ${ss.bits} • ${ss.opp}`;
 
 export const persist = () => {
     const json = JSON.stringify({
@@ -12,7 +14,7 @@ export const persist = () => {
         over: ss.over, turn: ss.turn, who_started: ss.who_started, last_op: ss.last_op,
     });
 
-    localStorage.setItem(ss.appKey(), json);
+    localStorage.setItem(appKey(), json);
 };
 
 export const valueColor = (bits) => {

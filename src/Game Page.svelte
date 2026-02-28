@@ -14,10 +14,11 @@
     import { _stats, ss } from './state.svelte';
     import { post } from './utils';
     import Help from './routes/Help.svelte';
+    import { appKey } from './shared.svelte';
 
     onMount(() => {
         const loadGame = () => {
-            const json = localStorage.getItem(ss.appKey());
+            const json = localStorage.getItem(appKey());
             const job = JSON.parse(json);
 
             if (job) {

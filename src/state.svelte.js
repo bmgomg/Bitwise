@@ -1,11 +1,9 @@
-import { APP_STATE, START_PAGE } from './const';
-import { OPP_AI, PROMPT_TRANSITION } from './const';
+import { PROMPT_TRANSITION, START_PAGE } from './const';
 import { post } from './utils';
 
 export const ss = $state({
-    opp: OPP_AI,
+    bits: 1,
     score: [0, 0],
-    appKey: () => `${APP_STATE} • ${ss.opp}`,
     page: START_PAGE,
     show_reference: true,
 });
