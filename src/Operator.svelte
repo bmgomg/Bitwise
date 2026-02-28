@@ -45,7 +45,6 @@
     <div bind:this={_op} class="name {ss.pressed === op ? 'pressed' : ''}">{op}</div>
     <div class="bits {valueColor(outBits)}">
         <XO x={outBits[0]} {size} />
-        <XO x={outBits[1]} {size} />
     </div>
 </div>
 
@@ -84,7 +83,7 @@
         display: grid;
         grid-auto-flow: column;
         gap: 5px;
-        padding: 4px 6px;
+        padding: 4px 20px;
     }
 
     .name {

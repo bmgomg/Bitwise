@@ -22,7 +22,7 @@ export const valueColor = (bits) => {
     return b1 && b2 ? 'green' : b1 && !b2 ? 'yellow' : b2 && !b1 ? 'blue' : 'ow';
 };
 
-export const newBits = () => sample([[0, 0], [0, 1], [1, 0], [1, 1]]);
+export const newBits = () => sample([[0], [1]]);
 
 export const xoSize = () => ss.show_reference ? 21 : 20;
 
@@ -32,13 +32,13 @@ export const fn = (op, que = ss.queue) => {
 
     switch (op) {
         case 'AND':
-            return [bits1[0] & bits2[0], bits1[1] & bits2[1]];
+            return [bits1[0] & bits2[0]];
         case 'OR':
-            return [bits1[0] | bits2[0], bits1[1] | bits2[1]];
+            return [bits1[0] | bits2[0]];
         case 'XOR':
-            return [bits1[0] ^ bits2[0], bits1[1] ^ bits2[1]];
+            return [bits1[0] ^ bits2[0]];
         default:
-            return [0, 0];
+            return [0];
     }
 };
 
@@ -53,9 +53,9 @@ export const onClickOp = (op) => {
 
     const score = [...ss.score];
 
-    if (bits[0] === 1 && bits[1] === 0) {
+    if (bits[0] === 1) {
         ss.score[0] += 1;
-    } else if (bits[0] === 0 && bits[1] === 1) {
+    } else if (bits[0] === 0) {
         ss.score[1] += 1;
     }
 

@@ -30,6 +30,10 @@
             return true;
         }
 
+        _stats.plays = 0;
+        _stats.won = 0;
+        _stats.total_points = [0, 0];
+
         return false;
     };
 

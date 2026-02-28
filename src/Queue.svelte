@@ -27,7 +27,6 @@
             {@const filter = 'invert(0.25)'}
             <div class={classes} style="grid-area: {row}/1" in:fly={params}>
                 <XO x={bits[0]} {size} {filter} />
-                <XO x={bits[1]} {size} {filter} />
             </div>
         {/snippet}
         {@render cell(newClasses, newParams, ss.new, 1)}
@@ -80,7 +79,7 @@
         border: solid #00000080;
         border-width: 0 0 1px;
         display: grid;
-        grid: auto / 1fr 1fr;
+        /* grid: auto / 1fr 1fr; */
         grid-auto-flow: column;
         place-content: center;
         align-items: center;

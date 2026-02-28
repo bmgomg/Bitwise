@@ -23,9 +23,8 @@
         width={70}
         onpointerdown={onClick} />
     <span class="text">Player {player} scores when the result is</span>
-    <div class="bits {valueColor(player === 1 ? [1, 0] : [0, 1])}">
+    <div class="bits {valueColor(player === 1 ? [1] : [0])}">
         <XO x={player === 1} {size} />
-        <XO x={player === 2} {size} />
     </div>
 </div>
 
@@ -68,7 +67,7 @@
         grid-auto-flow: column;
         gap: 10px;
         align-items: center;
-        padding: 8px 10px;
+        padding: 8px 20px;
     }
 
     .spin {

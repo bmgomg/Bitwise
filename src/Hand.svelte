@@ -16,18 +16,18 @@
         const ops = [OP_AND, OP_OR, OP_XOR].filter((op) => op !== ss.op && op !== ss.last_op);
         const outs = ops.map((o) => fn(o));
 
-        const goodOuts = outs.filter((bits) => !bits[0] && bits[1]);
+        const goodOuts = outs.filter((bits) => !bits[0]);
 
         if (goodOuts.length === 1) {
-            const i = outs.findIndex((bits) => !bits[0] && bits[1]);
+            const i = outs.findIndex((bits) => !bits[0]);
             op = ops[i];
             return;
         }
 
-        const badOuts = outs.filter((bits) => bits[0] && !bits[1]);
+        const badOuts = outs.filter((bits) => bits[0]);
 
         if (badOuts.length === 1) {
-            const i = outs.findIndex((bits) => !bits[0] || bits[1]);
+            const i = outs.findIndex((bits) => !bits[0]);
             op = ops[i];
             return;
         }
@@ -48,18 +48,18 @@
             const _outs = _ops.map((o) => fn(o, que));
 
             // both outputs are good?
-            if (_outs.every(bits => !bits[0] && bits[1])) {
+            if (_outs.every(bits => !bits[0])) {
                 op = _op;
                 return;
             }
 
             // neither output is bad?
-            if (_outs.every(bits => !bits[0] || bits[1])) {
+            if (_outs.every(bits => !bits[0])) {
                 decents.push(_op);
             }
 
             // both outputs are bad?
-            if (_outs.every(bits => bits[0] && !bits[1])) {
+            if (_outs.every(bits => bits[0])) {
                 bads.push(_op);
             }
         }

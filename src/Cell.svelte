@@ -9,7 +9,6 @@
     const filter = 'invert(0.25)';
     const size = xoSize();
     const b1 = bits[0];
-    const b2 = bits[1];
 
     const classes = $derived.by(() => {
         const input = index > QUEUE_SIZE - 3;
@@ -30,7 +29,6 @@
 
 <div class={classes} style="grid-area: {index + 1} / 1">
     <XO x={b1} {size} {filter} />
-    <XO x={b2} {size} {filter} />
 </div>
 
 <style>
@@ -40,7 +38,7 @@
         border: solid #00000080;
         border-width: 0 0 1px;
         display: grid;
-        grid: auto / 1fr 1fr;
+        /* grid: auto / 1fr 1fr; */
         grid-auto-flow: column;
         place-content: center;
         align-items: center;
