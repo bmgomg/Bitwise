@@ -70,7 +70,7 @@
 
 <div class="toolbar">
     <ToolButton id="tb-back" src={Back} onClick={onBack} disabled={operating} />
-    <ToolButton id="tb-help" src={Help} onClick={onHelp} disabled={operating}/>
+    <!-- <ToolButton id="tb-help" src={Help} onClick={onHelp} disabled={operating}/> -->
     <ToolButton id="tb-restart" src={ss.opp === OPP_AI ? Surrender : Restart} onClick={onRestart} disabled={operating || !ss.started || ss.over} />
     <ToolButton id="tb-reset-stats" src={ResetStats} onClick={onResetStats} disabled={operating || _stats.plays === 0} />
     <ToolButton id="tb-sfx" src={_sound.sfx ? SoundOn : SoundOff} onClick={onSound} />

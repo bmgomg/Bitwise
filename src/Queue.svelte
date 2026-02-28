@@ -18,7 +18,7 @@
     {#if ss.new}
         {@const outBits = fn(ss.op)}
         {@const newClasses = 'cell default-background'}
-        {@const outputClasses = `cell ${valueColor(outBits)}`}
+        {@const outputClasses = `cell ${ss.bits === 2 ? 'two-bits' : ''} ${valueColor(outBits)}`}
         {@const duration = 350}
         {@const newParams = { y: '-100%', opacity: 1, duration, delay: duration + 150, easing: linear }}
         {@const outputParams = { x: '100%', opacity: 1, duration: duration + 150, easing: linear }}
@@ -82,10 +82,13 @@
         border: solid #00000080;
         border-width: 0 0 1px;
         display: grid;
-        grid: auto / 1fr 1fr;
         grid-auto-flow: column;
         place-content: center;
         align-items: center;
+    }
+
+    .two-bits {
+        grid: auto / 1fr 1fr;
     }
 
     .default-background {
