@@ -68,7 +68,9 @@
         grid-auto-flow: column;
         gap: 10px;
         align-items: center;
-        padding: 8px 10px;
+        padding: 8px 0;
+        width: 70px;
+        place-content: center;
     }
 
     .spin {

@@ -84,7 +84,9 @@
         display: grid;
         grid-auto-flow: column;
         gap: 5px;
-        padding: 4px 6px;
+        padding: 4px 0;
+        width: 50px;
+        place-content: center;
     }
 
     .name {
