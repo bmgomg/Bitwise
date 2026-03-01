@@ -40,7 +40,7 @@
 </script>
 
 <div
-    class="op {op === ss.op || op === ss.robo_op ? 'selected' : muted ? 'muted disabled' : disabled ? 'disabled' : ''}"
+    class="op {op === ss.op  ? 'selected' : op === ss.robo_op ? 'robo' : muted ? 'muted disabled' : disabled ? 'disabled' : ''}"
     onpointerdown={onPointerDown}>
     <div bind:this={_op} class="name {ss.pressed === op ? 'pressed' : ''}">{op}</div>
     <div class="bits {valueColor(outBits)}">
@@ -67,6 +67,10 @@
         text-decoration: overline;
     }
 
+    .robo {
+        text-decoration: overline;
+    }
+
     .disabled,
     .muted {
         pointer-events: none;
@@ -77,7 +81,6 @@
     }
 
     .selected {
-        text-decoration: overline;
         pointer-events: none;
         color: white;
     }
