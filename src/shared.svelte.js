@@ -8,9 +8,22 @@ export const log = (value) => console.log($state.snapshot(value));
 
 export const appKey = () => `${APP_STATE} • ${ss.bits} • ${ss.opp}`;
 
+export const loadCommon = () => {
+    const json = localStorage.getItem(APP_STATE);
+    const job = JSON.parse(json);
+
+    if (job) {
+        _sound.sfx = job.sfx;
+        _sound.music = job.music;
+    }
+};
+
 export const persist = () => {
-    const json = JSON.stringify({
-        ..._stats, ..._sound, started: ss.started, queue: ss.queue, score: ss.score,
+    let json = JSON.stringify({ sfx: _sound.sfx, music: _sound.music });
+    localStorage.setItem(APP_STATE, json);
+
+    json = JSON.stringify({
+        ..._stats, started: ss.started, queue: ss.queue, score: ss.score,
         over: ss.over, turn: ss.turn, who_started: ss.who_started, last_op: ss.last_op,
     });
 

@@ -10,25 +10,13 @@
     import Stats from './Stats.svelte';
     import Toolbar from './Toolbar.svelte';
     import { GAME_PAGE, OPP_AI } from './const';
-    import { _sound } from './sound.svelte';
-    import { _stats, ss } from './state.svelte';
-    import { post } from './utils';
     import Help from './routes/Help.svelte';
-    import { appKey } from './shared.svelte';
+    import { loadCommon } from './shared.svelte';
+    import { ss } from './state.svelte';
+    import { post } from './utils';
 
     onMount(() => {
-        const loadGame = () => {
-            const json = localStorage.getItem(appKey());
-            const job = JSON.parse(json);
-
-            if (job) {
-                _stats.plays = job.plays;
-                _sound.sfx = job.sfx;
-                _sound.music = job.music;
-            }
-        };
-
-        post(loadGame);
+        post(loadCommon);
     });
 </script>
 
@@ -56,7 +44,7 @@
         grid-area: 1/1;
         /* place-self: center; */
         display: grid;
-        grid: auto auto 1fr auto 80px auto / auto;
+        grid: auto auto 1fr auto 100px auto / auto;
         gap: 15px;
         transition: opacity 0.2s;
         width: 100%;
