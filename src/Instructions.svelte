@@ -20,7 +20,6 @@
         filter: drop-shadow(0 0 3px #00000080);
         color: var(--blue);
         transition: opacity 0.2s;
-        translate: 0 -10px;
     }
 
     .hidden {

@@ -8,7 +8,7 @@
     import { fn, valueColor, xoSize } from './shared.svelte';
     import XO from './XO.svelte';
 
-    const grid = `repeat(${QUEUE_SIZE}, 42px)/auto;`;
+    const grid = `repeat(${QUEUE_SIZE}, 43px)/auto;`;
 </script>
 
 <div class="queue no-overflow" style="grid: {grid}">
@@ -55,7 +55,6 @@
         display: grid;
         box-sizing: border-box;
         width: 95px;
-        translate: 0 -25px;
     }
 
     .no-overflow {

@@ -33,7 +33,6 @@
         grid-auto-flow: column;
         gap: 30px;
         filter: drop-shadow(0 0 3px #00000080);
-        translate: 0 -25px;
     }
 
     .labels {
