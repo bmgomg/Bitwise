@@ -2,7 +2,7 @@
     import Back from '$lib/images/Back.webp';
     import MusicOff from '$lib/images/Music Off.webp';
     import MusicOn from '$lib/images/Music On.webp';
-    // import Help from '$lib/images/Question.webp';
+    import Help from '$lib/images/Question.webp';
     import ResetStats from '$lib/images/Reset Stats.webp';
     import Restart from '$lib/images/Restart.webp';
     import SoundOff from '$lib/images/Sound Off.webp';
@@ -19,9 +19,9 @@
         ss.page = START_PAGE;
     };
 
-    // const onHelp = () => {
-    //     ss.help = true;
-    // };
+    const onHelp = () => {
+        ss.help = true;
+    };
 
     const onResetStats = () => {
         if (_prompt.id == PROMPT_RESET_STATS) {
@@ -70,7 +70,7 @@
 
 <div class="toolbar">
     <ToolButton id="tb-back" src={Back} onClick={onBack} disabled={operating} />
-    <!-- <ToolButton id="tb-help" src={Help} onClick={onHelp} disabled={operating}/> -->
+    <ToolButton id="tb-help" src={Help} onClick={onHelp} disabled={operating}/>
     <ToolButton id="tb-restart" src={ss.opp === OPP_AI ? Surrender : Restart} onClick={onRestart} disabled={operating || !ss.started || ss.over} />
     <ToolButton id="tb-reset-stats" src={ResetStats} onClick={onResetStats} disabled={operating || _stats.plays === 0} />
     <ToolButton id="tb-sfx" src={_sound.sfx ? SoundOn : SoundOff} onClick={onSound} />
